@@ -32,6 +32,22 @@ void film(){
 	
 }
 
+void cekAntrean(queue<string> antri){
+	queue<string> que = antri;
+	int number = 1;
+	if(que.empty()){
+	while(que.empty()){
+		cout<<"Antrian kosong!";
+		getch();
+	}
+	}else{
+		cout<<number<<". "<<que.front()<<"\n";
+		que.pop();
+		number++;
+	}
+	cout<<"\n";
+}
+
 int main(){
 	int pil;
 	string nama;
