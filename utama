@@ -76,6 +76,36 @@ int main(){
 	system("cls");
 	getch();
 	}
+	else if(pil==2){
+		if(antri.empty()){
+			
+			cout<<"antrian kosong...\n";
+			Sleep(1000);
+			system("cls");
+		}
+		
+		else{
+			
+		film();
+		cout<<"silahkan"<<antri.front()<<"pilih film yang ingin anda tonton : ";
+		cin>>pil2;
+		cout<<"banyaknya tiket yang ingin anda pesan : ";
+		cin>>tiket;
+		cout<<"Harga yang harus anda bayar : ";
+		cout<<beli(pil2, tiket)<<"\n";
+		
+		cout<<antri.front()<<" silahkan membayar : ";
+		cin>>bayar;
+		if(bayar<beli(pil2,tiket)){
+			cout<<"Pembayaran anda kurang Rp."<<beli(pil2,tiket)-bayar<<endl;
+			cout<<"Silahkan membayar kembali : ";
+			cin>>bayar2;
+			if(bayar2==beli(pil2,tiket)-bayar){
+				cout<<"Film : "<<film2[pil2-1];
+				cout<<"\nJumlah tiket : "<<tiket;
+				cout<<"\nTerimakasih "<<antri.front()<<" selamat menonton \n";
+				antri.pop();
+			}
 while(pil!=5);
 	
 	}
