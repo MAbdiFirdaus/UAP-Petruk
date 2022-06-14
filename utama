@@ -106,6 +106,8 @@ int main(){
 				cout<<"\nTerimakasih "<<antri.front()<<" selamat menonton \n";
 				antri.pop();
 			}
+			
+		}
 while(pil!=5);
 	
 	}
