@@ -1,3 +1,58 @@
-
-#include<iostream>
+#include <iostream>
+#include <queue>
+#include <windows.h>
+#define max 15
 using namespace std;
+
+void film(){
+	string film[5]={"Jakarta VS Everybody", "Ben & Jody    ", "NKTCHI        ", "KKN Desa Penari", "Morbius          "};
+	int harga[5]={20000, 15000, 10000, 15000, 20000};
+	for (int i=0; i<5; i++){
+		cout<<i+1<<"."<<film[i]<<"\t\t\t\t\t\t"<<"Rp."<<harga[i]<<endl;
+	}
+	
+	int beli(int pilih, int tiket){
+	switch (pilih){
+		case 1 :
+			return 20000*tiket;
+			break;
+		case 2 :
+			return 15000*tiket;
+			break;
+		case 3 :
+			return 10000*tiket;
+			break;
+		case 4 :
+			return 15000*tiket;
+			break;
+		case 5 :
+			return 20000*tiket;
+			break;
+	}
+	
+}
+
+int main(){
+	int pil;
+	string nama;
+	
+	film();
+	
+	
+	cout<<"pilihan : ";
+	cin>>pil;
+	cout<<"masukkan nama anda : ";
+	cin>>nama;
+	
+	queue<string>antri;
+	if(pil==1){
+	cout<<"masukkan nama anda : ";
+	cin>>nama;
+	antri.push(nama);
+	}
+	else if(pil==2){
+		antri.pop()
+	}
+	
+	
+}
