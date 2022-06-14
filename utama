@@ -51,26 +51,31 @@ void displayAntrian(queue<string> antri){
 }
 
 int main(){
-	int pil;
+	string film2[5]={"Jakarta VS Everybody", "Ben & Jody    ", "NKTCHI        ", "KKN Desa Penari", "Morbius          "};
+	int pil,pil2,tiket,bayar,bayar2;
 	string nama;
-	
-	film();
-	
-	
-	cout<<"pilihan : ";
-	cin>>pil;
-	cout<<"masukkan nama anda : ";
-	cin>>nama;
-	
+	char pilihan;
 	queue<string>antri;
+	
+	
+	cout<<"Apakah anda ingin mengantri memesan film? ";
+	cin>>pilihan;
+	if (pilihan == 'Y'||pilihan == 'y'){
+	
+	do{
+		cout<<"1. Mengantri(push)\n2. Membayar(pop)\n3. Melihat antrian\n4.Hapus semua antrian\n5. Exit program";
+	cout<<"\npilihan : ";
+	cin>>pil;
+	
 	if(pil==1){
 	cout<<"masukkan nama anda : ";
 	cin>>nama;
 	antri.push(nama);
+	cout<<"Silahkan menunggu antrian\n";
+	Sleep(1000);
+	system("cls");
+	getch();
 	}
-	else if(pil==2){
-		antri.pop()
+while(pil!=5);
+	
 	}
-	
-	
-}
