@@ -141,5 +141,18 @@ int main(){
 	
 		}
 while(pil!=5);
-	
 	}
+	else if(pilihan == 'n' || pilihan == 'N'){
+		system("cls");
+		cout<<"Terimakasih telah berkunjung";
+		
+	}
+	else{
+		system("cls");
+		main();
+	}
+	
+	
+	
+	
+}
