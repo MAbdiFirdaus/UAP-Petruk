@@ -106,7 +106,11 @@ int main(){
 				cout<<"\nTerimakasih "<<antri.front()<<" selamat menonton \n";
 				antri.pop();
 			}
-			
+	else if(pil==3){
+		displayAntrian(antri);
+		Sleep(3000);
+		system("cls");
+	}		
 		}
 while(pil!=5);
 	
