@@ -105,6 +105,9 @@ int main(){
 				cout<<"\nJumlah tiket : "<<tiket;
 				cout<<"\nTerimakasih "<<antri.front()<<" selamat menonton \n";
 				antri.pop();
+				}
+				
+			
 			}
 	else if(pil==3){
 		displayAntrian(antri);
