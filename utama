@@ -110,7 +110,13 @@ int main(){
 		displayAntrian(antri);
 		Sleep(3000);
 		system("cls");
-	}		
+	}
+	else if(pil==4){
+		while(!antri.empty()) {
+       	 antri.pop();
+    	}
+	}
+	
 		}
 while(pil!=5);
 	
