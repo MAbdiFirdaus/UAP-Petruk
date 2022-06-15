@@ -107,6 +107,25 @@ int main(){
 				antri.pop();
 				}
 				
+			else if(bayar==beli(pil2,tiket)){
+			cout<<"Film : "<<film2[pil2-1];
+			cout<<"\nJumlah tiket : "<<tiket;
+			cout<<"\nTerimakasih "<<antri.front()<<" selamat menonton \n";
+			antri.pop();
+			cout<<"\nAnda akan dikeluarkan dari antrian.";
+			Sleep(3000);
+			system("cls");	
+		}
+		else{
+			cout<<"Film : "<<film2[pil2-1];
+			cout<<"\nJumlah tiket : "<<tiket;
+			cout<<"\nKembalian anda : "<<bayar-beli(pil2,tiket)<<endl;
+			cout<<"\nTerimakasih "<<antri.front()<<" selamat menonton \n";
+			antri.pop();
+			cout<<"\nAnda akan dikeluarkan dari antrian.";
+			Sleep(3000);
+			system("cls");
+				
 			
 			}
 	else if(pil==3){
