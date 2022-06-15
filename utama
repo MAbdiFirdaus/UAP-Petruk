@@ -4,11 +4,15 @@
 #include <conio.h>
 using namespace std;
 
+int number = 1;
+queue<string>que;
+
 void film(){
-	string film[5]={"Jakarta VS Everybody", "Ben & Jody    ", "NKTCHI        ", "KKN Desa Penari", "Morbius          "};
+	string film[5]={"Jakarta VS Everybody", "Ben & Jody    ", "NKTCHI        ", "KKN Desa Penari", "Morbius          "};	
 	int harga[5]={20000, 15000, 10000, 15000, 20000};
 	for (int i=0; i<5; i++){
 		cout<<i+1<<"."<<film[i]<<"\t\t\t\t\t\t"<<"Rp."<<harga[i]<<endl;
+	}
 	}
 	
 	int beli(int pilih, int tiket){
@@ -33,12 +37,9 @@ void film(){
 }
 
 void displayAntrian(queue<string> antri){
-	queue<string> que = antri;
-	int number = 1;
+	que = antri;
 	if(que.empty()){
-	while(que.empty()){
 		cout<<"Antrian kosong!";
-	}
 	}else{
 		while(!que.empty()){
 		cout<<number<<". "<<que.front()<<"\n";
@@ -55,31 +56,32 @@ int main(){
 	int pil,pil2,tiket,bayar,bayar2;
 	string nama;
 	char pilihan;
-	queue<string>antri;
+	queue<string> antri;
+
 	
-	
-	cout<<"Apakah anda ingin mengantri memesan film? ";
+	cout<<"Apakah anda ingin mengantri memesan film?(y/n) ";
 	cin>>pilihan;
 	if (pilihan == 'Y'||pilihan == 'y'){
 	
 	do{
-		cout<<"1. Mengantri(push)\n2. Membayar(pop)\n3. Melihat antrian\n4.Hapus semua antrian\n5. Exit program";
-	cout<<"\npilihan : ";
+	Sleep(1000);
+	system("cls");
+	cout<<"1. Mengantri(push)\n2. Membayar(pop)\n3. Melihat antrian\n4. Hapus semua antrian\n5. Exit program";
+	cout<<"\npilihan(1-5) : ";
 	cin>>pil;
 	
 	if(pil==1){
-	cout<<"masukkan nama anda : ";
+	cout<<"Masukkan nama anda : ";
 	cin>>nama;
 	antri.push(nama);
 	cout<<"Silahkan menunggu antrian\n";
-	Sleep(1000);
 	system("cls");
 	getch();
 	}
 	else if(pil==2){
 		if(antri.empty()){
 			
-			cout<<"antrian kosong...\n";
+			cout<<"Antrian kosong...\n";
 			Sleep(1000);
 			system("cls");
 		}
@@ -87,30 +89,49 @@ int main(){
 		else{
 			
 		film();
-		cout<<"silahkan"<<antri.front()<<"pilih film yang ingin anda tonton : ";
+		cout<<"Silahkan "<<antri.front()<<" pilih film yang ingin anda tonton : ";
 		cin>>pil2;
-		cout<<"banyaknya tiket yang ingin anda pesan : ";
+		cout<<"Banyaknya tiket yang ingin anda pesan : ";
 		cin>>tiket;
-		cout<<"Harga yang harus anda bayar : ";
+		cout<<"Harga yang harus anda bayar : Rp.";
 		cout<<beli(pil2, tiket)<<"\n";
 		
-		cout<<antri.front()<<" silahkan membayar : ";
+		cout<<antri.front()<<" silahkan membayar : Rp.";
 		cin>>bayar;
+		Sleep(1000);
+		system("cls");
 		if(bayar<beli(pil2,tiket)){
 			cout<<"Pembayaran anda kurang Rp."<<beli(pil2,tiket)-bayar<<endl;
-			cout<<"Silahkan membayar kembali : ";
+			cout<<"Silahkan membayar kembali : Rp.";
 			cin>>bayar2;
 			if(bayar2==beli(pil2,tiket)-bayar){
+				system("cls");
 				cout<<"Film : "<<film2[pil2-1];
 				cout<<"\nJumlah tiket : "<<tiket;
-				cout<<"\nTerimakasih "<<antri.front()<<" selamat menonton \n";
+				cout<<"\nTerimakasih "<<antri.front()<<" selamat menonton ";
+				cout<<"\nAnda akan dikeluarkan dari antrian.";
 				antri.pop();
-				}
-				
-			else if(bayar==beli(pil2,tiket)){
+				Sleep(3000);
+				system("cls");
+			}
+			else if(bayar2>beli(pil2,tiket)-bayar){
+				system("cls");
+				int kurang = beli(pil2,tiket)-bayar;
+				cout<<"Film : "<<film2[pil2-1];
+				cout<<"\nJumlah tiket : "<<tiket;
+				cout<<"\nkembalian anda : Rp."<<bayar2-kurang<<endl;
+				cout<<"Terimakasih "<<antri.front()<<" selamat menonton ";
+				cout<<"Anda akan dikeluarkan dari antrian.";
+				antri.pop();
+				Sleep(3000);
+				system("cls");
+				getch();
+			}
+		}
+		else if(bayar==beli(pil2,tiket)){
 			cout<<"Film : "<<film2[pil2-1];
 			cout<<"\nJumlah tiket : "<<tiket;
-			cout<<"\nTerimakasih "<<antri.front()<<" selamat menonton \n";
+			cout<<"\nTerimakasih "<<antri.front()<<" selamat menonton ";
 			antri.pop();
 			cout<<"\nAnda akan dikeluarkan dari antrian.";
 			Sleep(3000);
@@ -119,28 +140,36 @@ int main(){
 		else{
 			cout<<"Film : "<<film2[pil2-1];
 			cout<<"\nJumlah tiket : "<<tiket;
-			cout<<"\nKembalian anda : "<<bayar-beli(pil2,tiket)<<endl;
-			cout<<"\nTerimakasih "<<antri.front()<<" selamat menonton \n";
+			cout<<"\nKembalian anda : Rp."<<bayar-beli(pil2,tiket)<<endl;
+			cout<<"Terimakasih "<<antri.front()<<" selamat menonton ";
 			antri.pop();
 			cout<<"\nAnda akan dikeluarkan dari antrian.";
 			Sleep(3000);
 			system("cls");
-				
 			
-			}
+		}
+		
+		
+		}
+	}
+	
 	else if(pil==3){
 		displayAntrian(antri);
 		Sleep(3000);
 		system("cls");
 	}
+	
 	else if(pil==4){
 		while(!antri.empty()) {
        	 antri.pop();
+       	 cout<<"Semua antrian telah dihapus";
+       	 system("cls");
     	}
 	}
 	
-		}
-while(pil!=5);
+	}	
+	while(pil!=5);
+	
 	}
 	else if(pilihan == 'n' || pilihan == 'N'){
 		system("cls");
